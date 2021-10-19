@@ -4,7 +4,7 @@ print(packages)
 
 setup(
 	name='python-comcigan',
-	version='1.0.1',
+	version='1.0.2',
 	description='Comcigan api for Python',
 	author='H2Owater425',
 	author_email='h2o@h2owr.xyz',
