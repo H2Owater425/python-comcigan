@@ -1,10 +1,10 @@
+from __future__ import annotations
 from base64 import b64encode
 from json import loads
 from typing import Literal, Union
 from urllib.request import urlopen
 from re import search, sub
 from bs4 import BeautifulSoup
-from __future__ import annotations
 
 class Comcigan:
 	__URL: str = 'http://comci.kr:4082'
