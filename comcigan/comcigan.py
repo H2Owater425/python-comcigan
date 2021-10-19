@@ -29,7 +29,7 @@ class Comcigan:
 			return string
 		else:
 			return string.replace('\0', '')
-	
+
 	def __getTrimmedArray(self: Comcigan, array: list) -> list:
 		lastZeroIndex = len(array)
 
@@ -67,7 +67,7 @@ class Comcigan:
 					for school in schools:
 						if(school[1] == schoolRegion):
 							self.__timetablePath = '?' + b64encode((self.__getRegexResult(baseScript, r'\'\d+_\'')[1:-1] + str(school[3]) + '_0_1').encode('UTF-8')).decode('UTF-8')
-					
+
 					if(self.__timetablePath != None):
 						return None
 					else:
@@ -78,7 +78,9 @@ class Comcigan:
 				raise Exception('Invalid route regular expression in module')
 
 	def synchronize(self: Comcigan) -> Comcigan:
-		self.__init__(self.__timetableObject['학교명'], self.__timetableObject['지역명'])
+		if(self.__timetableObject != None):
+			self.__init__(self.__timetableObject['학교명'], self.__timetableObject['지역명'])
+
 		self.__timetableObject = loads(self.__getResponseString(self.__URL + self.__basePath + self.__timetablePath, 'UTF-8'))
 
 		return self
@@ -138,7 +140,7 @@ class Comcigan:
 								teacherId = int((periodIds[l] - subjectId) / 100)
 
 								timetables[i][j][k][l] = [subjects[subjectId], teachers[teacherId]]
-							
+
 							else:
 								timetables[i][j][k][l] = [None]
 					else:
@@ -154,7 +156,7 @@ class Comcigan:
 			return self.__getTrimmedArray(self.__timetableObject['긴자료' + self.__subjectId][1:])
 		except:
 			raise Exception('Invalid self.__subjectId in module')
-	
+
 	def getTeachers(self: Comcigan) -> list[str]:
 		if(self.__timetableObject == None):
 			self.synchronize()
@@ -163,11 +165,11 @@ class Comcigan:
 			return self.__timetableObject['자료' + self.__teacherId][1:]
 		except:
 			raise Exception('Invalid self.__teacherId in module')
-	
+
 	def getPeriodStartingTimes(self: Comcigan) -> list[str]:
 		if(self.__timetableObject == None):
 			self.synchronize()
-		
+
 		periodTimes = self.__timetableObject['일과시간']
 
 		for i in range(len(periodTimes)):
@@ -184,7 +186,7 @@ class Comcigan:
 	def getHomeroomTeachers(self: Comcigan) -> list[list[str]]:
 		if(self.__timetableObject == None):
 			self.synchronize()
-		
+
 		teachers: list[str] = self.getTeachers()
 		teachers.insert(0, '')
 
@@ -195,5 +197,5 @@ class Comcigan:
 
 			for teacherId in self.__getTrimmedArray(self.__timetableObject['담임'][i]):
 				homeroomTeachers[i].append(teachers[teacherId])
-		
+
 		return homeroomTeachers
