@@ -8,8 +8,6 @@
 
 ## Installation
 
-> **NOTICE**: Please always use the latest version of the package. <br/> Since Comcigan changes its method to get data often, legacy version may not work.
-
 ```bash
 $ pip install python-comcigan
 ```
