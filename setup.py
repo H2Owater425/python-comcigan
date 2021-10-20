@@ -3,7 +3,7 @@ packages = find_packages()
 
 setup(
 	name='python-comcigan',
-	version='1.0.3',
+	version='1.0.4',
 	description='Comcigan api for Python',
 	long_description=open('./README.md').read(),
 	long_description_content_type='text/markdown',
