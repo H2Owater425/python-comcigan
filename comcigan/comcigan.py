@@ -182,7 +182,7 @@ class Comcigan:
 		if(self.__timetableObject == None):
 			self.synchronize()
 
-		return self.__timetableObject[1:]
+		return self.__timetableObject['학급수'][1:]
 
 	def getHomeroomTeachers(self: Comcigan) -> list[list[str]]:
 		if(self.__timetableObject == None):
