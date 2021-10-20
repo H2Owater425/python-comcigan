@@ -5,6 +5,8 @@ setup(
 	name='python-comcigan',
 	version='1.0.3',
 	description='Comcigan api for Python',
+	long_description=open('./README.md').read(),
+	long_description_content_type='text/markdown',
 	author='H2Owater425',
 	author_email='h2o@h2owr.xyz',
 	url='https://github.com/H2Owater425/python-comcigan',
