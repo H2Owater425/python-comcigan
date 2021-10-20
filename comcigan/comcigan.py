@@ -85,7 +85,7 @@ class Comcigan:
 
 		return self
 
-	def getTimetable(self: Comcigan) -> list[list[list[Union[list[Union[list[str, str], None]], None]]]]:
+	def getPeriods(self: Comcigan) -> list[list[list[Union[list[Union[list[str, str], None]], None]]]]:
 		if(self.__timetableObject == None):
 			self.synchronize()
 
@@ -110,43 +110,44 @@ class Comcigan:
 				if(subjects[i + 1] == ''):
 					break
 
-		timetables: list[list[list[Union[list[Union[list[str, str], None]], None]]]] = []
+		periods: list[list[list[Union[list[Union[list[str, str], None]], None]]]] = []
+		
 		try:
-			timetableIds = self.__timetableObject['자료' + self.__timetableId][1:]
+			periodIds = self.__timetableObject['자료' + self.__timetableId][1:]
 		except:
 			raise Exception('Invalid self.__timetableId in module')
 
-		for i in range(len(timetableIds)):
-			timetables.append([])
+		for i in range(len(periodIds)):
+			periods.append([])
 
-			gradeTimetableIds = timetableIds[i][1:]
+			gradeperiodIds = periodIds[i][1:]
 
-			for j in range(len(gradeTimetableIds)):
-				timetables[i].append([])
+			for j in range(len(gradeperiodIds)):
+				periods[i].append([])
 
-				classTimetableIds = gradeTimetableIds[j][1:]
+				classperiodIds = gradeperiodIds[j][1:]
 
-				for k in range(len(classTimetableIds)):
-					timetables[i][j].append([])
+				for k in range(len(classperiodIds)):
+					periods[i][j].append([])
 
-					periodIds = self.__getTrimmedArray(classTimetableIds[k][1:])
+					periodIds = self.__getTrimmedArray(classperiodIds[k][1:])
 
 					if(len(periodIds) != 0):
 						for l in range(len(periodIds)):
-							timetables[i][j][k].append([])
+							periods[i][j][k].append([])
 
 							if(periodIds[l] != 0):
 								subjectId = periodIds[l] % 100
 								teacherId = int((periodIds[l] - subjectId) / 100)
 
-								timetables[i][j][k][l] = [subjects[subjectId], teachers[teacherId]]
+								periods[i][j][k][l] = [subjects[subjectId], teachers[teacherId]]
 
 							else:
-								timetables[i][j][k][l] = [None]
+								periods[i][j][k][l] = [None]
 					else:
-						timetables[i][j][k].append(None)
+						periods[i][j][k].append(None)
 
-		return timetables
+		return periods
 
 	def getSubjects(self: Comcigan) -> list[str]:
 		if(self.__timetableObject == None):
@@ -177,7 +178,7 @@ class Comcigan:
 
 		return periodTimes
 
-	def getClassCount(self: Comcigan) -> list[int]:
+	def getClassCounts(self: Comcigan) -> list[int]:
 		if(self.__timetableObject == None):
 			self.synchronize()
 
