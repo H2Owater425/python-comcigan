@@ -1,11 +1,11 @@
 <div align='center'>
-	<img src='https://cdn.h2owr.xyz/images/python-comcigan/banner.png' alt='banner'/>
-	<h3>Comcigan api for Python</h3>
-	<sup>Hello school!</sup>
-	
-	[![pypi version](https://img.shields.io/pypi/v/python-comcigan?style=flat-square)](https://pypi.org/project/python-comcigan/)
-	[![python version](https://img.shields.io/pypi/pyversions/python-comcigan?style=flat-square)](https://pypi.org/project/python-comcigan/)
-	[![license](https://img.shields.io/github/license/H2Owater425/python-comcigan?style=flat-square)](https://github.com/H2Owater425/python-comcigan/blob/main/LICENSE)
+  <img src='https://cdn.h2owr.xyz/images/python-comcigan/banner.png' alt='banner'/>
+  <h3>Comcigan api for Python</h3>
+  <sup>Hello school!</sup>
+  
+  [![pypi version](https://img.shields.io/pypi/v/python-comcigan?style=flat-square)](https://pypi.org/project/python-comcigan/)
+  [![python version](https://img.shields.io/pypi/pyversions/python-comcigan?style=flat-square)](https://pypi.org/project/python-comcigan/)
+  [![license](https://img.shields.io/github/license/H2Owater425/python-comcigan?style=flat-square)](https://github.com/H2Owater425/python-comcigan/blob/main/LICENSE)
 </div>
 
 <br/>
